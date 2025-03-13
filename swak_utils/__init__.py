@@ -1,4 +1,5 @@
 # __init__.py
+from . import user_input
 from . import vnv
 
 # Version
