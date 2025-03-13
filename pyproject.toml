@@ -1,0 +1,25 @@
+# pyproject.toml
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# Version = MAJOR.MINOR.PATCH
+[project]
+name = "gen_utils"
+version = "0.1.2"
+description = "Library of utilities I have created and used"
+dependencies = []
+readme = "README.md"
+authors = [{ name = "Owen Miller-Fast", email = "owen.r.miller-fast.civ@army.mil" }]
+license = { file = "LICENSE" }
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Operating System :: Microsoft :: Windows",
+  "Intended Audience :: Myself and Potentiall Colleagues"
+]
+keywords = ["debug", "utilities", "vnv"]
+
+[project.optional-dependencies]
+dev = []
