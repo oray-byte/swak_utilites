@@ -1,13 +1,23 @@
-from typing import Callable, Optional, Any
+"""
+file: debug.py
+author: Owen Miller-Fast (oray-byte)
+description: Debugging utilities for python projects
+last edited: 03/14/2025 (Owen Miller-Fast)
+"""
+
+from typing import Optional, Any, Dict, Tuple
+
+# global variables
+DEBUG: bool = True
 
 # Cool idea, but decorator pretty much does this much easier
-def if_debug(DEBUG: bool, function: Callable[..., Optional[Any]], *parameters: Any) -> Optional[Any]:
+def debug_wrapper(function: Any, *args: Tuple, **kwargs: Dict[str, Any]) -> Optional[Any]:
   """
   **Author:**
   Owen Miller-Fast
   
   **Description:**\n
-  Run function passed in function parameter with parameters passed in the parameters parameter if DEBUG is true. Will be developing a decorator to replace this function.
+  Run function passed in function parameter with parameters passed in the parameters parameter if DEBUG is true. Useful for predefined functions
   
   **Parameters:**\n
   *DEBUG:* `bool` - Usually a global variable in python project. True if currently debugging program. False otherwise.\n
@@ -19,11 +29,11 @@ def if_debug(DEBUG: bool, function: Callable[..., Optional[Any]], *parameters: A
   """
   
   if DEBUG:
-    return function(*parameters)
+    return function(*args, **kwargs)
+  else:
+    return None
 
-def debug(debug: bool):
-  def decorator_function(orig_func):
-    def wrapper_function(*args, **kwargs):
-      if debug: return orig_func(*args, **kwargs)
-    return wrapper_function
-  return decorator_function
+def debug(orig_func):
+  def wrapper_function(*args, **kwargs):
+    if DEBUG: return orig_func(*args, **kwargs)
+  return wrapper_function

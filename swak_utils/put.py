@@ -12,8 +12,6 @@ import swak_utils.ui as ui
 from swak_utils import remove_chars, safe_cast
 from swak_utils import debug
 
-DEBUG: bool = True
-
 TYPE_MAP: Dict[str, type] = {
   "int": int,
   "float": float,
@@ -62,7 +60,7 @@ class Test:
 
 def run_test() -> None:
   file: str = ui.user_file_GUI("put")
-  debug.if_debug(DEBUG, print, f"DEBUG: {file}")
+  debug.debug_wrapper(print, f"DEBUG: {file}")
 
 # Switched to JSON. It is more popular. Easier use
 # """
