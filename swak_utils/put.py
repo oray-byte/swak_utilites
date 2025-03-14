@@ -9,7 +9,6 @@ from typing import Any, Callable, Dict, Iterable, List, Optional
 
 # Custom imports
 import swak_utils.ui as ui
-from swak_utils import remove_chars, safe_cast
 from swak_utils import debug
 
 DEBUG: bool = True

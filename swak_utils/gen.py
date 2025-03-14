@@ -17,3 +17,6 @@ def remove_chars(string: str, characters: List[str]) -> str:
     modified_string = "".join(modified_string.split(char))
   
   return modified_string
+
+def find_indices(string: str, character: str) -> List[int]:
+  return [i for i, char in enumerate(string) if char == character]
