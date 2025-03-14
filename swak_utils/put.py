@@ -1,12 +1,26 @@
-# _helpers.py
-# Helper functions for put.py
-from typing import Callable, Optional, Any, List, Dict, Iterable
-from enum import Enum
+"""
+file: put.py
+author: Owen Miller-Fast
+description: Contains functionality relating to Python Unit Test
+last edited: 03/14/2025 (Owen Miller-Fast)
+"""
+# Standard imports
+from typing import Any, Callable, Dict, Iterable, List, Optional
 
 # Custom imports
-from gen_utils.general.string_manip import remove_chars
-from gen_utils.errors import InvalidPUTFile
-from gen_utils.general import safe_cast
+import swak_utils.ui as ui
+from swak_utils import remove_chars, safe_cast
+from swak_utils import debug
+
+DEBUG: bool = True
+
+TYPE_MAP: Dict[str, type] = {
+  "int": int,
+  "float": float,
+  "bool": bool,
+  "str": str,
+  "Iter": Iterable
+}
 
 """ .put file structure
 FUNCTION | [INPUTS] | [EXPECTED OUTPUTS]
@@ -28,16 +42,6 @@ Sentences/characters - str
 Lists/etc - Iter
 """
 
-DEBUG: bool = True
-
-TYPE_MAP: Dict[str, type] = {
-  "int": int,
-  "float": float,
-  "bool": bool,
-  "str": str,
-  "Iter": Iterable
-}
-
 class Test_Case:
   test_function: Callable[..., Optional[Any]]
   test_inputs: List[Any]
@@ -55,6 +59,10 @@ class Test:
   def __init__(self, test_cases=None):
     if test_cases:
       self.test_cases = test_cases
+
+def run_test() -> None:
+  file: str = ui.user_file_GUI("put")
+  debug.if_debug(DEBUG, print, f"DEBUG: {file}")
 
 # Switched to JSON. It is more popular. Easier use
 # """

@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog as fd
 from tkinter import messagebox as mb
-from typing import List, Optional
 
 def user_directory_GUI() -> None:
   """
