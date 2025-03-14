@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 # Version = MAJOR.MINOR.PATCH
 [project]
-name = "gen_utils"
+name = "swak_utils"
 version = "0.1.2"
 description = "Library of utilities I have created and used"
 dependencies = []
